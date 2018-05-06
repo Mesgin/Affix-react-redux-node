@@ -1,0 +1,29 @@
+{
+  "name": "affix",
+  "version": "1.0.0",
+  "description": "Social Network Application",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mesgin/affix.git"
+  },
+  "author": "Mo Mesgin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mesgin/affix/issues"
+  },
+  "homepage": "https://github.com/Mesgin/affix#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.17",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.1.0"
+  }
+}
