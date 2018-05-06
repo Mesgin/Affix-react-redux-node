@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 6000
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 // Routes
 const users = require('./routes/api/users')
 const profile = require('./routes/api/profile')
@@ -12,6 +13,8 @@ const db = require('./config/keys').mongoURI
 mongoose.connect(db)
   .then(() => console.log('DB connected'))
   .catch(err =>console.log(err))
+
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.send('sup?'))
 
