@@ -12,14 +12,18 @@ const posts = require('./routes/api/posts')
 const db = require('./config/keys').mongoURI
 mongoose.connect(db)
   .then(() => console.log('DB connected'))
-  .catch(err =>console.log(err))
+  .catch(err => console.log(err))
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
 
-app.get('/', (req, res) => res.send('sup?'))
+app.get('/', (req, res) => {
+  res.send('sup?')
+  }
+)
 
-app.use('/api/users',users)
-app.use('/api/profile',profile)
-app.use('/api/posts',posts)
+app.use('/api/users', users)
+app.use('/api/profile', profile)
+app.use('/api/posts', posts)
 
-app.listen(port, () => console.log('Server running'))
+app.listen(port, () => console.log(`Server running ${port}`))
