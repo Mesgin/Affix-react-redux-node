@@ -14,10 +14,11 @@ router.get('/',(req,res)=>{
 })
 
 router.post('/register',(req,res)=>{
-  console.log(req.body)
+  
   let {errors,isValid} = validateRegisterInput(req.body)
   
   if(!isValid){
+    console.log(isValid)
     return res.status(400).json(errors)
   }
 
