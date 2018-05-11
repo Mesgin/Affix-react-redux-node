@@ -15,9 +15,10 @@ router.get('/',(req,res)=>{
 
 router.post('/register',(req,res)=>{
   
-  let {errors,isValid} = validateRegisterInput(req.body)
+  const {errors,isValid} = validateRegisterInput(req.body)
   
   if(!isValid){
+    console.log('co',errors)
     return res.status(400).json(errors)
   }
 
