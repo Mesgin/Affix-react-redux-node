@@ -57,7 +57,8 @@ router.post('/login',(req,res)=>{
   let {email,password} = req.body
   User.findOne({email})
   .then(user => {
-    if(!user) res.status(404).json('User not found')
+    errors.email = 'Email or Password is wrong'
+    if(!user) res.status(404).json(errors)
 
     bcrypt.compare(password,user.password)
       .then(isMatch => {
