@@ -19,6 +19,10 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps){
+    if(nextProps.auth.isAuthenticated){
+      this.props.history.push('/dashboard')
+    }
+
     if(nextProps.errors){
       this.setState({
         errors: nextProps.errors
@@ -29,10 +33,11 @@ class Login extends Component {
   onSubmit(e) {
     e.preventDefault()
 
-    const user = {
+    const userData = {
       email: this.state.email,
       password: this.state.password
     }
+    this.props.loginUser(userData)
   }
 
   onChange(e) {
@@ -50,7 +55,7 @@ class Login extends Component {
               <p className="lead text-center">
                 Sign in to your aFFix account
               </p>
-              <form onSubmit={this.onSubmit}>
+              <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="email"
@@ -102,4 +107,4 @@ const mapStateToProps = state => ({
   errors: state.errors
 })
 
-export default connect(mapStateToProps,{ loginUser})(Login)
+export default connect(mapStateToProps,{ loginUser })(Login)
