@@ -8,7 +8,7 @@ import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import Landing from './components/layout/Landing'
 import Dashboard from './components/dashboard/Dashboard'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import './App.css'
@@ -40,7 +40,9 @@ class App extends Component {
             <div className="container">
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
-              <Route exact path='/dashboard' component={Dashboard} />
+              <Switch>
+                <Route exact path='/dashboard' component={Dashboard} />
+              </Switch>
             </div>
             <Footer />
           </div>

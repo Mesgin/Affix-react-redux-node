@@ -6,7 +6,10 @@ import { getCurrentProfile } from '../../actions/profileActions'
 import Spinner from '../common/Spinner'
 
 class Dashboard extends Component {
-  componentDidMount() {
+  componentWillMount() {
+    if(!this.props.auth.isAuthenticated){
+      window.location.href = '/login'
+    }
     this.props.getCurrentProfile()
   }
   render() {
@@ -14,7 +17,7 @@ class Dashboard extends Component {
     const { profile, loading } = this.props.profile
 
     let dashboarContent;
-    if (!profile || loading) {
+    if (profile===null || loading) {
       dashboarContent = <Spinner />
     } else {
       if (Object.keys(profile) > 0) {
