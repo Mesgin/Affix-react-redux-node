@@ -4,12 +4,11 @@ const port = process.env.PORT || 6000
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const passport = require('passport')
-// Routes
+
 const users = require('./routes/api/users')
 const profile = require('./routes/api/profile')
 const posts = require('./routes/api/posts')
 
-// MongoDB connection
 const db = require('./config/keys').mongoURI
 mongoose.connect(db)
   .then(() => console.log('DB connected'))

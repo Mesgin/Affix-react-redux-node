@@ -1,4 +1,5 @@
-module.exports = {
-  mongoURI: 'mongodb://mo:incognito@ds215910.mlab.com:15910/affix-db',
-  jwtSecret : 'enigma'
+if(process.env.NODE_ENV === 'production'){
+  module.exports = require('./keys_prod')
+} else {
+  module.exports = require('./keys_dev')
 }
