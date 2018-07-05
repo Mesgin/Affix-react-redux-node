@@ -66,7 +66,7 @@ router.post('/login',(req,res)=>{
           let payload = {id:user.id,name:user.name,avatar:user.avatar}
           jwt.sign(
             payload,
-            keys.jwtSecret,
+            keys.secretOrKey,
             {expiresIn:360000},
             (err,token)=>{
               res.json({
